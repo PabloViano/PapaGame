@@ -10,14 +10,15 @@ using System.Text;
 [ServiceContract]
 public interface IService
 {
-
 	[OperationContract]
 	string GetData(int value);
 
 	[OperationContract]
+	int ReturnDados();
+	[OperationContract]
 	CompositeType GetDataUsingDataContract(CompositeType composite);
 	[OperationContract]
-	int VerificarPuntos(List<int> numeros);
+	int VerificarPuntos(int[] numeros);
 
 	// TODO: agregue aquí sus operaciones de servicio
 }

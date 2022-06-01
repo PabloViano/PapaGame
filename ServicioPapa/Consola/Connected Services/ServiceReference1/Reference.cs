@@ -84,6 +84,12 @@ namespace Consola.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnDados", ReplyAction="http://tempuri.org/IService/ReturnDadosResponse")]
+        int ReturnDados();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnDados", ReplyAction="http://tempuri.org/IService/ReturnDadosResponse")]
+        System.Threading.Tasks.Task<int> ReturnDadosAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
         Consola.ServiceReference1.CompositeType GetDataUsingDataContract(Consola.ServiceReference1.CompositeType composite);
         
@@ -130,6 +136,14 @@ namespace Consola.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
             return base.Channel.GetDataAsync(value);
+        }
+        
+        public int ReturnDados() {
+            return base.Channel.ReturnDados();
+        }
+        
+        public System.Threading.Tasks.Task<int> ReturnDadosAsync() {
+            return base.Channel.ReturnDadosAsync();
         }
         
         public Consola.ServiceReference1.CompositeType GetDataUsingDataContract(Consola.ServiceReference1.CompositeType composite) {

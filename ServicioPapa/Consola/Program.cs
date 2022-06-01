@@ -15,18 +15,25 @@ namespace Consola
             bool Estado = true;
             while (Estado)
             {
-                int puntos = service.VerificarPuntos(ObtenerNumeros(5));
+                int[] Numeros = ObtenerNumeros(service.ReturnDados()).ToArray();
+                Console.WriteLine("Los numeros que salieron son: ");
+                foreach (int item in Numeros)
+                {
+                    Console.WriteLine(item);
+                }
+                int puntos = service.VerificarPuntos(Numeros);
+                Console.WriteLine($"Puntos totales son: {puntos}");
+                if (service.ReturnDados() < 2) { Estado = false;}
             }
             
         }
-        private List<int> ObtenerNumeros(int dados)
+        private static List<int> ObtenerNumeros(int dados)
         {
             List<int> Numeros = new List<int>();
+            Random n1 = new Random();
             for (int i = 0; i <= dados; i++)
             {
-                Random n1 = new Random();
-                n1.Next(1, 6);
-                Numeros.Add(int.Parse(n1.ToString()));
+                Numeros.Add(n1.Next(1, 6));
             }
             return Numeros;
         }
