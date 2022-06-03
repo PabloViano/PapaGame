@@ -10,37 +10,28 @@ using System.Text;
 [ServiceContract]
 public interface IService
 {
-	[OperationContract]
-	string GetData(int value);
 
 	[OperationContract]
-	int ReturnDados();
-	[OperationContract]
-	CompositeType GetDataUsingDataContract(CompositeType composite);
-	[OperationContract]
-	int VerificarPuntos(int[] numeros);
+	Resultado Jugar(Dado[] dados);
 
-	// TODO: agregue aquí sus operaciones de servicio
 }
 
-// Utilice un contrato de datos, como se ilustra en el ejemplo siguiente, para agregar tipos compuestos a las operaciones de servicio.
 [DataContract]
-public class CompositeType
+public class Dado
 {
-	bool boolValue = true;
-	string stringValue = "Hello ";
+	[DataMember]
+	public int Numero { get; set; }
+}
+
+[DataContract]
+public class Resultado
+{
+	[DataMember]
+	public int DadosRestantes { get; set; }
 
 	[DataMember]
-	public bool BoolValue
-	{
-		get { return boolValue; }
-		set { boolValue = value; }
-	}
+	public int Puntos { get; set; }
 
 	[DataMember]
-	public string StringValue
-	{
-		get { return stringValue; }
-		set { stringValue = value; }
-	}
+	public bool Estado { get; set; }
 }

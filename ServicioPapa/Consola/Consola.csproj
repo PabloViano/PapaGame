@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\ServiceReference1\Consola.ServiceReference1.CompositeType.datasource">
+    <None Include="Connected Services\ServiceReference1\Consola.ServiceReference1.Resultado.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\Service.wsdl" />
@@ -66,9 +66,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\Service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

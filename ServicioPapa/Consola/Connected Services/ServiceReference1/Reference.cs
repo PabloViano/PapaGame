@@ -15,18 +15,15 @@ namespace Consola.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Dado", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Dado : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private int NumeroField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +36,91 @@ namespace Consola.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public int Numero {
             get {
-                return this.BoolValueField;
+                return this.NumeroField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((this.NumeroField.Equals(value) != true)) {
+                    this.NumeroField = value;
+                    this.RaisePropertyChanged("Numero");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Resultado", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class Resultado : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DadosRestantesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PuntosField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DadosRestantes {
+            get {
+                return this.DadosRestantesField;
+            }
+            set {
+                if ((this.DadosRestantesField.Equals(value) != true)) {
+                    this.DadosRestantesField = value;
+                    this.RaisePropertyChanged("DadosRestantes");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public bool Estado {
             get {
-                return this.StringValueField;
+                return this.EstadoField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((this.EstadoField.Equals(value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Puntos {
+            get {
+                return this.PuntosField;
+            }
+            set {
+                if ((this.PuntosField.Equals(value) != true)) {
+                    this.PuntosField = value;
+                    this.RaisePropertyChanged("Puntos");
                 }
             }
         }
@@ -78,29 +139,11 @@ namespace Consola.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService")]
     public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Jugar", ReplyAction="http://tempuri.org/IService/JugarResponse")]
+        Consola.ServiceReference1.Resultado Jugar(Consola.ServiceReference1.Dado[] dados);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnDados", ReplyAction="http://tempuri.org/IService/ReturnDadosResponse")]
-        int ReturnDados();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnDados", ReplyAction="http://tempuri.org/IService/ReturnDadosResponse")]
-        System.Threading.Tasks.Task<int> ReturnDadosAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        Consola.ServiceReference1.CompositeType GetDataUsingDataContract(Consola.ServiceReference1.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<Consola.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Consola.ServiceReference1.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/VerificarPuntos", ReplyAction="http://tempuri.org/IService/VerificarPuntosResponse")]
-        int VerificarPuntos(int[] numeros);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/VerificarPuntos", ReplyAction="http://tempuri.org/IService/VerificarPuntosResponse")]
-        System.Threading.Tasks.Task<int> VerificarPuntosAsync(int[] numeros);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Jugar", ReplyAction="http://tempuri.org/IService/JugarResponse")]
+        System.Threading.Tasks.Task<Consola.ServiceReference1.Resultado> JugarAsync(Consola.ServiceReference1.Dado[] dados);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -130,36 +173,12 @@ namespace Consola.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public Consola.ServiceReference1.Resultado Jugar(Consola.ServiceReference1.Dado[] dados) {
+            return base.Channel.Jugar(dados);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
-        public int ReturnDados() {
-            return base.Channel.ReturnDados();
-        }
-        
-        public System.Threading.Tasks.Task<int> ReturnDadosAsync() {
-            return base.Channel.ReturnDadosAsync();
-        }
-        
-        public Consola.ServiceReference1.CompositeType GetDataUsingDataContract(Consola.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<Consola.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Consola.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
-        }
-        
-        public int VerificarPuntos(int[] numeros) {
-            return base.Channel.VerificarPuntos(numeros);
-        }
-        
-        public System.Threading.Tasks.Task<int> VerificarPuntosAsync(int[] numeros) {
-            return base.Channel.VerificarPuntosAsync(numeros);
+        public System.Threading.Tasks.Task<Consola.ServiceReference1.Resultado> JugarAsync(Consola.ServiceReference1.Dado[] dados) {
+            return base.Channel.JugarAsync(dados);
         }
     }
 }
