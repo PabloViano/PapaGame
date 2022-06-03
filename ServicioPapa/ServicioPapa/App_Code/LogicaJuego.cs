@@ -40,11 +40,14 @@ public class LogicaJuego
     internal Resultado VerificarPuntos(Dado[] dados)
     {
         DatosCompletos(dados);
-        List<DatoJuego> dadosActuales = datosJuego.Where(x => x.Repeticiones == 0).ToList();
+        List<DatoJuego> dadosActuales = datosJuego.Where(x => x.Repeticiones > 0).ToList();
         dadosActuales = dadosActuales.OrderBy(x => x.Numero).ToList();
         if (dadosActuales.Select(x => x.Numero).Distinct().Count() == 5)
         {
-            if ((dadosActuales[0].Numero == 1 && dadosActuales[dadosActuales.Count].Numero == 5) || (dadosActuales[0].Numero == 2 && dadosActuales[dadosActuales.Count].Numero == 6))
+            if (
+                    (dadosActuales.Any(x => x.Numero == 1) && !dadosActuales.Any(x => x.Numero == 6)) ||
+                    (dadosActuales.Any(x => x.Numero == 6) && !dadosActuales.Any(x => x.Numero == 1))
+                )
             {
                 return new Resultado { DadosRestantes = 5, Estado = true, Puntos = 20 };
             }
@@ -56,11 +59,12 @@ public class LogicaJuego
         else
         {
             int PuntosJuego = 0;
+            var dadosRestantes = 0;
             foreach (var dado in dadosActuales)
             {
-                if (dado.Repeticiones > 1) { PuntosJuego += dado.Suma; }
+                if (dado.Repeticiones > 1) { PuntosJuego += dado.Suma; dadosRestantes += dado.Repeticiones; }
             }
-            return new Resultado { DadosRestantes = dadosActuales.Where(x => x.Repeticiones >= 1).Count(), Estado = PuntosJuego == 0, Puntos = PuntosJuego };
+            return new Resultado { DadosRestantes = dadosRestantes, Estado = PuntosJuego == 0, Puntos = PuntosJuego };
         }
     }
 

@@ -46,10 +46,11 @@ namespace Consola
                     dadosTotal = resultado.DadosRestantes;
                     finalizado = resultado.Estado;
                 }
-                Console.WriteLine($"--------Puntos-Totales-{sumaPuntos}-------");
+                Console.WriteLine($"--------Puntos-Totales-[{sumaPuntos}]-------");
                 juegos++;
                 Thread.Sleep(5000);
             }
+            Console.Read();
         }
     }
 }
