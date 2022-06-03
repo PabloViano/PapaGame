@@ -1,0 +1,8 @@
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\bin\Debug\Consola.exe.config
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\bin\Debug\Consola.exe
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\bin\Debug\Consola.pdb
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\obj\Debug\Consola.csproj.AssemblyReference.cache
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\obj\Debug\Consola.csproj.SuggestedBindingRedirects.cache
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\obj\Debug\Consola.csproj.CoreCompileInputs.cache
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\obj\Debug\Consola.exe
+A:\User\Pablo\Universidad\Programacion ll\PapaGame\ServicioPapa\Consola\obj\Debug\Consola.pdb
